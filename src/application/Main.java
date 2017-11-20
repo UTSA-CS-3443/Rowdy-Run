@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 
 
@@ -16,7 +17,9 @@ public static Stage stage;
 		try {
 		
 			Parent root = FXMLLoader.load(getClass().getResource("/MainView.fxml"));
-			primaryStage.setScene(new Scene(root, 800, 500));
+			Scene welcomeScene = new Scene(root, 800, 500); 
+			primaryStage.setResizable(false);
+			primaryStage.setScene(welcomeScene);
 			primaryStage.show();
 			
 			//TODO Implement Background
