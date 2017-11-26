@@ -16,13 +16,13 @@
             <Image url="@../graphics/landscape-1844227_1280.png" />
          </image>
       </ImageView>
-      <Button alignment="CENTER" contentDisplay="TEXT_ONLY" layoutX="320.0" layoutY="373.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="161.0" text="Start">
+      <Button alignment="CENTER" contentDisplay="TEXT_ONLY" layoutX="320.0" layoutY="373.0" mnemonicParsing="false" onAction="#handle" prefHeight="27.0" prefWidth="161.0" text=" Start">
          <font>
-            <Font name="Comic Sans MS Bold" size="19.0" />
+            <Font name="Arial Bold" size="19.0" />
          </font></Button>
       <Text layoutX="246.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rowdy Run" textAlignment="CENTER" wrappingWidth="308.69097900390625">
          <font>
-            <Font name="Comic Sans MS Bold" size="55.0" />
+            <Font name="Arial Bold" size="55.0" />
          </font>
       </Text>
    </children>
