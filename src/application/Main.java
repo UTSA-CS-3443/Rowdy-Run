@@ -8,9 +8,10 @@ import javafx.scene.Group;
 import javafx.scene.Parent;
 
 
-public class Main extends Application {
+public class Main extends Application 
+{
 	
-public static Stage stage;
+	public static Stage stage;
 	
 	@Override
 	public void start(Stage primaryStage) {
