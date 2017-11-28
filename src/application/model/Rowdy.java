@@ -2,6 +2,7 @@ package application.model;
 
 import java.awt.Point;
 
+
 import gamefx.Levels;
 import javafx.application.Application;
 import javafx.geometry.Point2D;
