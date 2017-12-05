@@ -1,6 +1,7 @@
 package application.controller;
 
 import application.Main;
+import application.Settings;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -21,7 +22,7 @@ public class MainController implements EventHandler<ActionEvent>
 			Parent root = FXMLLoader.load(getClass().getResource("/LevelSelectView.fxml"));
 			
 			// Add the scene to the stage
-			Main.stage.setScene(new Scene(root, 800, 500));
+			Main.stage.setScene(new Scene(root, Settings.SCENE_WIDTH , Settings.SCENE_HEIGHT));
 			
 			// Show the stage to the user
 			Main.stage.show();
