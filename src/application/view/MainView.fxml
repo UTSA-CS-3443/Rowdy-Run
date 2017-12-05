@@ -11,9 +11,9 @@
 
 <AnchorPane maxHeight="500.0" maxWidth="1000.0" minHeight="500.0" minWidth="100.0" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainController">
    <children>
-      <ImageView fitHeight="823.0" fitWidth="1345.0" layoutX="-15.0" layoutY="-135.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="787.0" fitWidth="1008.0" layoutX="-4.0" layoutY="-279.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@resources/landscape-1844227_1280.png" />
+            <Image url="@../../resources/landscape-1844227_1280.png" />
          </image>
       </ImageView>
       <Button alignment="CENTER" contentDisplay="TEXT_ONLY" layoutX="401.0" layoutY="372.0" mnemonicParsing="false" onAction="#handle" prefHeight="27.0" prefWidth="161.0" text=" Start">

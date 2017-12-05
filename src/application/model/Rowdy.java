@@ -1,70 +1,113 @@
 package application.model;
 
-import java.awt.Point;
-
-
-import gamefx.Levels;
-import javafx.application.Application;
-import javafx.geometry.Point2D;
-import javafx.scene.Node;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
+import javafx.scene.layout.Pane;
 
+import java.util.ArrayList;
 
-public class Rowdy {
-	public boolean bigRowdy = false, smallRowdy = false, invRowdy = false, ignoreWall = false;
-	protected boolean goRight, goLeft, ground;
-	protected Point pos;
-	protected Image rowdy;
-	// OR
-	protected Node player;
-	private int x, y;
-	/*private Point2D playerVelocity = new Point2D(0, 0);
-	
-	// this is so rowdy won't go off width of level, unsure if used here
-	private int levelWidth = Levels.LEVEL1[0].length() * 60; //the Levels class can be changed to whatever Oscar decides
-	*/
-	
-	public Rowdy() {
-		this.player = Create();
-		this.goLeft = true;
-		this.goRight = true; 
-		this.x = 0;
-		this.y = 0;
-		//this.pos= ??
+import application.controller.PlayerController;
+
+public class Rowdy extends Sprite {
+
+	PlayerController controls;
+	double speed;
+
+	private ArrayList<Image> frames = new ArrayList<Image>();
+	private ArrayList<Platform> platforms = new ArrayList<Platform>();
+
+	private int frameIndex = 1;
+	private int time = 1;
+
+	private double jumpStartPos;
+
+	private boolean canJump = true;
+	private boolean jumping;
+
+	public Rowdy(Pane layer, Image image, double x, double y, double dx, double dy, double speed,
+			PlayerController controls, ArrayList<Image> frames, ArrayList<Platform> platforms) {
+
+		super(layer, image, x, y, dx, dy);
+
+		this.speed = speed;
+		this.controls = controls;
+		this.frames = frames;
+		this.platforms = platforms;
+
 	}
-	public ImageView Create() {
-			Image im = new Image("file:///C:/Users/Eric/git/Rowdy-Run/src/gamefx/ROWDY.jpg");
-			ImageView view = new ImageView();
-			view.setImage(im);
-			view.setFitHeight(70);
-			view.setFitWidth(40);
-			view.getProperties().put("alive", true);
-			return view;
+
+	@Override
+	public void checkRemovability() {
+
 	}
-	
-	public ImageView powerPlay(Node player) {
-		Image im = new Image("file:///C:/Users/Eric/git/Rowdy-Run/src/gamefx/ROWDY.jpg"); 
-		ImageView view = new ImageView();
-		view.setImage(im);
-		if (bigRowdy = true) {
-			view.setFitHeight(90);
-			view.setFitWidth(60);
+
+	public boolean checkBoundaries() {
+		if (y > Settings.SCENE_HEIGHT) {
+			return false;
+		} else {
+			return true;
 		}
-		else if (smallRowdy = true) {
-			view.setFitHeight(50);
-			view.setFitWidth(20);
-		}
-		else if(invRowdy = true){
-			ignoreWall = true;
-			//original dimensions
-			view.setFitHeight(70);
-			view.setFitWidth(40);
-		}
-		
-		return view;
 	}
-	
+
+	public void jump(double speed) {
+
+		if (!canMove)
+			return;
+
+		if (y > jumpStartPos - Settings.PLAYER_JUMP_HEIGHT) {
+			y -= 10;
+		}
+
+		if (y == jumpStartPos - Settings.PLAYER_JUMP_HEIGHT) {
+			jumping = false;
+		}
+	}
+
+	public void fall() {
+		if (jumping) {
+			return;
+		}
+
+		y += 10;
+
+		for (Platform platform : platforms) {
+			if (this.collidesWith(platform)) {
+				y = platform.y - 50;
+				canJump = true;
+			}
+
+		}
+	}
+
+	@Override
+	public void updateUI() {
+
+		if (frameIndex + 1 == frames.size()) {
+			frameIndex = 0;
+		}
+
+		if (time % 15 == 0) {
+			frameIndex++;
+		}
+
+		imageView.setImage(frames.get(frameIndex));
+		imageView.relocate(x, y);
+
+		time++;
+	}
+
+	public void processInput() {
+
+		if (controls.isJump() && canJump == true) {
+			canJump = false;
+			jumping = true;
+			jumpStartPos = y;
+			jump(jumpStartPos);
+		}
+
+		if (jumping) {
+			jump(jumpStartPos);
+		}
+
+	}
 
 }

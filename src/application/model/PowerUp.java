@@ -1,28 +1,20 @@
 package application.model;
 
-public abstract class PowerUp 
-{
-	private int xLocation, yLocation, width, length;
-	
-	private String powerType;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Pane;
 
-	public PowerUp(int x, int y, int w, int l)
-	{
-		this.xLocation = x;
-		this.yLocation = y;
-		this.width = w;
-		this.length = l;
+public abstract class PowerUp extends Sprite{
+
+	public PowerUp(Pane layer, Image image, double x, double y, double dx, double dy) {
+		super(layer, image, x, y, dx, dy);
+	}
+
+	@Override
+	public void checkRemovability() {
+		// TODO Auto-generated method stub
+		
 	}
 	
-	protected void setType(String type)
-	{
-		this.powerType = type;
-	}
+	public abstract void power();
 	
-	public String getType()
-	{
-		if (this.powerType.equals(null))
-			return "no power";
-		return this.powerType;
-	}
 }
