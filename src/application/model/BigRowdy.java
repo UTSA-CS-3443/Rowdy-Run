@@ -1,10 +1,23 @@
 package application.model;
 
-public class BigRowdy extends PowerUp
-{
-	public BigRowdy(int x, int y, int w, int l) 
-	{
-		super(x, y, w, l);
-		this.setType("big");
+import java.util.ArrayList;
+
+import application.controller.PlayerController;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Pane;
+
+public class BigRowdy extends PowerUp {
+	
+	
+
+	public BigRowdy(Pane layer, Image image, double x, double y, double dx, double dy) {
+		super(layer, image, x, y, dx, dy);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void power() {
+		// TODO Auto-generated method stub
+		
 	}
 }

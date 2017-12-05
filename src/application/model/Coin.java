@@ -1,25 +1,26 @@
 package application.model;
 
-public class Coin 
-{
-	private int xLocation, yLocation, width, length, value;
-	
-	public Coin(int x, int y, int w, int l)
-	{
-		this.xLocation = x;
-		this.yLocation = y;
-		this.width = w;
-		this.length = l;
-		this.setValue();
+import javafx.scene.image.Image;
+import javafx.scene.layout.Pane;
+
+public class Coin extends Sprite {
+
+	public Coin(Pane layer, Image image, double x, double y, double dx, double dy) {
+		super(layer, image, x, y, dx, dy);
+		// TODO Auto-generated constructor stub
 	}
-	
-	private void setValue()
-	{
-		this.value = (int) Math.ceil(Math.random() * 5);
+
+	@Override
+	public void updateUI() {
+
+		x -= Settings.SPEED_DIFFICULTY;
+		imageView.relocate(x, y);
 	}
-	
-	public int getValue()
-	{
-		return this.value;
+
+	@Override
+	public void checkRemovability() {
+		// TODO Auto-generated method stub
+
 	}
+
 }
