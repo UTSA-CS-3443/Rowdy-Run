@@ -18,17 +18,17 @@ public class Main extends Application
 		try {
 		
 			Parent root = FXMLLoader.load(getClass().getResource("/MainView.fxml"));
-			Scene welcomeScene = new Scene(root, 800, 500); 
+			Scene welcomeScene = new Scene(root, Settings.SCENE_WIDTH, Settings.SCENE_HEIGHT); 
 			primaryStage.setResizable(false);
 			primaryStage.setScene(welcomeScene);
 			primaryStage.show();
-			
-			//TODO Implement Background
 			
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 		this.stage = primaryStage;
+		
+		
 	}
 	
 	public static void main(String[] args) {
