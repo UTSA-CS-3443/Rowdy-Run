@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="500.0" maxWidth="1000.0" minHeight="500.0" minWidth="100.0" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainController">
+   <children>
+      <ImageView fitHeight="787.0" fitWidth="1008.0" layoutX="-4.0" layoutY="-279.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/landscape-1844227_1280.png" />
+         </image>
+      </ImageView>
+      <Button alignment="CENTER" contentDisplay="TEXT_ONLY" layoutX="401.0" layoutY="372.0" mnemonicParsing="false" onAction="#handle" prefHeight="27.0" prefWidth="161.0" text=" Start">
+         <font>
+            <Font name="Arial Bold" size="19.0" />
+         </font></Button>
+      <Text layoutX="327.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rowdy Run" textAlignment="CENTER" wrappingWidth="308.69097900390625">
+         <font>
+            <Font name="Arial Bold" size="55.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
