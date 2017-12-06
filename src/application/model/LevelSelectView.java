@@ -4,6 +4,11 @@ import java.io.IOException;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
+/**
+ * Level Select View: Sets the scene for Level Select View
+ * @author oscarsanjuan
+ *
+ */
 public class LevelSelectView {
 
 	Parent root;
