@@ -10,10 +10,19 @@ import javafx.scene.text.TextBoundsType;
 
 public class GameOverView {
 
+	/**
+	 * int Score: Score of to be displayed
+	 */
 	private int score;
 
+	/**
+	 * Text scoreText: Text object to be displayed in the scene
+	 */
 	private Text scoreText = new Text();
 
+	/**
+	 * Scene and Panes to be used in the Game Over View
+	 */
 	public Scene scene;
 	private Pane uiRoot;
 
@@ -22,8 +31,14 @@ public class GameOverView {
 		this.uiRoot = uiRoot;
 	}
 	
+	/**
+	 * Sets scene to be used by animator
+	 */
 	public void setScene() {
 		
+		/**
+		 * Gets last known score
+		 */
 		score = Main.levelOne.getScore();
 		
 		scoreText.setFont(new Font("Comic Sans MS", 50));

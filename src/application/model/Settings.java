@@ -1,5 +1,10 @@
 package application.model;
 
+/**
+ * Settings: Allows for easy adoption in difficulty and Size of game
+ * @author oscarsanjuan
+ *
+ */
 public class Settings {
 
 	public static double SCENE_WIDTH = 1000;

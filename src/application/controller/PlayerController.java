@@ -7,6 +7,11 @@ import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
+/**
+ * 
+ * @author oscarsanjuan
+ * PLayer Controller: Defines possible controls within the game
+ */
 public class PlayerController {
 
 	/**
@@ -15,14 +20,9 @@ public class PlayerController {
 	 */
 	private BitSet keyboardBitSet = new BitSet();
 
-	// -------------------------------------------------
-	// default key codes
-	// will vary when you let the user customize the key codes or when you add
-	// support for a 2nd player
-	// -------------------------------------------------
-
-	private KeyCode leftKey = KeyCode.LEFT;
-	private KeyCode rightKey = KeyCode.RIGHT;
+	/**
+	 *  Key Code that links the spacebar control
+	 */
 	private KeyCode spacebar = KeyCode.SPACE;
 
 	Scene scene;
@@ -30,7 +30,10 @@ public class PlayerController {
 	public PlayerController(Scene scene) {
 		this.scene = scene;
 	}
-
+	
+	/**
+	 * Adds Listeners for when the key is pressed and released
+	 */
 	public void addListeners() {
 
 		scene.addEventFilter(KeyEvent.KEY_PRESSED, keyPressedEventHandler);
@@ -38,6 +41,9 @@ public class PlayerController {
 
 	}
 
+	/**
+	 * Removes Listeners for when the key is pressed and released
+	 */
 	public void removeListeners() {
 
 		scene.removeEventFilter(KeyEvent.KEY_PRESSED, keyPressedEventHandler);
@@ -46,57 +52,31 @@ public class PlayerController {
 	}
 
 	/**
-	 * "Key Pressed" handler for all input events: register pressed key in the
-	 * bitset
+	 * "Key Pressed" handler for all input events
 	 */
 	private EventHandler<KeyEvent> keyPressedEventHandler = new EventHandler<KeyEvent>() {
 		@Override
 		public void handle(KeyEvent event) {
-
-			// register key down
 			keyboardBitSet.set(event.getCode().ordinal(), true);
-
 		}
 	};
 
 	/**
-	 * "Key Released" handler for all input events: unregister released key in the
-	 * bitset
+	 * "Key Released" handler for all input events
 	 */
 	private EventHandler<KeyEvent> keyReleasedEventHandler = new EventHandler<KeyEvent>() {
 		@Override
 		public void handle(KeyEvent event) {
-
-			// register key up
 			keyboardBitSet.set(event.getCode().ordinal(), false);
-
 		}
 	};
 
-	// -------------------------------------------------
-	// Evaluate bitset of pressed keys and return the player input.
-	// If direction and its opposite direction are pressed simultaneously, then the
-	// direction isn't handled.
-	// -------------------------------------------------
 
-	public boolean isMoveLeft() {
-		return keyboardBitSet.get(leftKey.ordinal()) && !keyboardBitSet.get(rightKey.ordinal());
-	}
-
-	public boolean isMoveRight() {
-		return keyboardBitSet.get(rightKey.ordinal()) && !keyboardBitSet.get(leftKey.ordinal());
-	}
-
-	public boolean isJumpLeft() {
-		return keyboardBitSet.get(spacebar.ordinal()) && keyboardBitSet.get(leftKey.ordinal())
-				&& !keyboardBitSet.get(rightKey.ordinal());
-	}
-
-	public boolean isJumpRight() {
-		return keyboardBitSet.get(spacebar.ordinal()) && keyboardBitSet.get(rightKey.ordinal())
-				&& !keyboardBitSet.get(leftKey.ordinal());
-	}
-
+	/**
+	 * 
+	 * @return
+	 *  isJump: returns true if the user presses spacebar
+	 */
 	public boolean isJump() {
 		return keyboardBitSet.get(spacebar.ordinal());
 	}

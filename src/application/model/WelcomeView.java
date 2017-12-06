@@ -4,6 +4,11 @@ import java.io.IOException;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
+/**
+ * Welcome View: Sets scene for Welcome View
+ * @author oscarsanjuan
+ *
+ */
 public class WelcomeView {
 
 	Parent root;
